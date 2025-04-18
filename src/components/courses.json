@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "modules": 12,
+    "level": "Beginner",
+    "title": "Git And GitHub",
+    "description": "Learn the basics of Git for version control and GitHub for collaboration."
+  },
+  {
+    "id": 2,
+    "modules": 5,
+    "level": "Beginner",
+    "title": "React Components",
+    "description": "Create React Components using latest Vite and Tailwindcss."
+  },
+  {
+    "id": 3,
+    "modules": 7,
+    "level": "Beginner",
+    "title": "Wrok With Tailwindcss",
+    "description": "Way to intregate Tailwindcss in any project."
+  }
+]

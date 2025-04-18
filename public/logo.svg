@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 47 40"
+   fill="none"
+   version="1.1"
+   id="svg11"
+   sodipodi:docname="mark.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview13"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="10.8875"
+     inkscape:cx="15.200918"
+     inkscape:cy="7.9448909"
+     inkscape:window-width="1920"
+     inkscape:window-height="1080"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg11" />
+  <defs
+     id="defs9">
+    <linearGradient
+       id="%%GRADIENT_ID%%"
+       x1="33.999"
+       x2="1"
+       y1="16.181"
+       y2="16.181"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="%%GRADIENT_TO%%"
+         id="stop4" />
+      <stop
+         offset="1"
+         stop-color="%%GRADIENT_FROM%%"
+         id="stop6" />
+    </linearGradient>
+  </defs>
+  <path
+     fill-rule="evenodd"
+     clip-rule="evenodd"
+     d="m 9.249869,19.918291 c 8.4e-5,2.296161 0.940941,4.262413 2.573554,5.410547 l 5.493017,3.847115 7.672229,-5.3714 -10.644509,-7.452904 14.49101,-10.1454332 -2e-4,7.17e-5 2e-4,-1.434e-4 L 21.162971,0.83481537 11.823423,7.3741016 C 10.190791,8.5222354 9.24993,10.48856 9.249869,12.784827 v 1.8e-4 7.2e-5 7.132925 1.8e-4 0 z m 12.355802,-3.563631 10.644801,7.453119 -14.491261,10.145612 7.67226,5.371329 9.3395,-6.539251 c 1.632699,-1.148133 2.573499,-3.1146 2.573499,-5.41094 v -7.133213 1.07e-4 -1.07e-4 c 0,-2.296339 -0.940898,-4.262699 -2.573601,-5.410941 L 29.27787,10.983367 Z"
+     fill="#1fab70"
+     id="path2-3"
+     style="fill:#0055d4;stroke-width:0.973895" />
+</svg>
