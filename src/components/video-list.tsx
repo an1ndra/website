@@ -1,4 +1,4 @@
-import type { VideoType } from "@/lib/types";
+import type { VideoType } from "../../lib/types";
 import Image from "next/image";
 
 interface VideoListProps {
@@ -23,8 +23,12 @@ export default function VideoList({ videos }: VideoListProps) {
               />
             </div>
             <div className="flex-1 min-w-0">
-              <h3 className="text-base font-normal truncate dark:text-slate-100">{video.title}</h3>
-              <p className="text-xs  mt-1 dark:text-slate-100">{video.duration}</p>
+              <h3 className="text-base font-normal truncate dark:text-slate-100">
+                {video.title}
+              </h3>
+              <p className="text-xs  mt-1 dark:text-slate-100">
+                {video.duration}
+              </p>
             </div>
           </div>
         ))}

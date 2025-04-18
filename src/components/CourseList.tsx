@@ -1,15 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import {
-  CheckCircle,
-  Search,
-  Calendar,
-  BookOpen,
-  Code,
-  Zap,
-  ArrowRight,
-  Star,
-} from "lucide-react";
+import { BookOpen, Code, Zap, ArrowRight } from "lucide-react";
 
 const CourseList = () => {
   return (
