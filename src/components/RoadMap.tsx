@@ -1,4 +1,5 @@
 import React from "react";
+import { Badge } from "./ui/badge";
 
 const RoadMap = () => {
   return (
@@ -69,15 +70,9 @@ const RoadMap = () => {
                 >
                   <h3 className="font-bold text-xl mb-2">{step.title}</h3>
                   <p className="text-gray-600 mb-3">{step.description}</p>
-                  <div
-                    className={`inline-block text-sm px-3 py-1 rounded-full ${
-                      i === 0
-                        ? "bg-blue-500 text-white"
-                        : "bg-gray-200 text-gray-600"
-                    }`}
-                  >
+                  <Badge className="p-1 pl-2 pr-2 dark:bg-slate-300 bg-slate-700">
                     {step.status}
-                  </div>
+                  </Badge>
                 </div>
               </div>
             ))}

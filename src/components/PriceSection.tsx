@@ -1,3 +1,6 @@
+import CoreDiveBtn from "./buttons/core";
+import GrowthPlanBtn from "./buttons/growth";
+
 export default function ProceSection() {
   return (
     <div className="bg-slate-50">
@@ -59,9 +62,7 @@ export default function ProceSection() {
             </ul>
           </div>
           <div className="mt-8">
-            <button className="bg-gray-900 hover:bg-gray-800 px-3 py-2 rounded-lg w-full text-white">
-              Create Free Account
-            </button>
+            <GrowthPlanBtn name="Create Free Account" />
           </div>
         </div>
 
@@ -126,11 +127,9 @@ export default function ProceSection() {
           </div>
 
           <div className="mt-8 relative rela">
-            <button className="bg-gray-900 hover:bg-gray-800 px-3 py-2 rounded-lg w-full text-white">
-              Join Waitlist
-            </button>
-            <div className="bg-pink-300 dark:bg-pink-400 text-red-700 dark:text-red-800 py-0 px-2 rounded-md absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 z-20 text-sm">
-              25% Disccound
+            <CoreDiveBtn name="Join Waitlist" />
+            <div className="badge badge-secondary absolute bottom-[-10px] left-1/2 transform -translate-x-1/2">
+              25% Discount
             </div>
           </div>
         </div>

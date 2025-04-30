@@ -9,24 +9,40 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.2.0",
+    "axios": "^1.9.0",
     "better-auth": "^1.2.7",
     "better-sqlite3": "^11.9.1",
-    "lucide-react": "^0.488.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "dodopayments": "^1.18.3",
+    "dotenv": "^16.5.0",
+    "framer-motion": "^12.9.2",
+    "lucide-react": "^0.503.0",
     "next": "15.3.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "resend": "^4.3.0"
+    "pg": "^8.15.6",
+    "primereact": "^10.9.5",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "resend": "^4.4.1",
+    "tailwind-merge": "^3.2.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
+    "@eslint/eslintrc": "^3.3.1",
+    "@tailwindcss/postcss": "^4.1.4",
     "@types/better-sqlite3": "^7.6.13",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
+    "@types/node": "^20.17.32",
+    "@types/pg": "^8.11.14",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "autoprefixer": "^10.4.21",
+    "daisyui": "^5.0.28",
+    "eslint": "^9.25.1",
     "eslint-config-next": "15.3.0",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.4",
+    "tsx": "^4.19.3",
+    "tw-animate-css": "^1.2.8",
+    "typescript": "^5.8.3"
   }
 }

@@ -5,14 +5,14 @@ import Link from "next/link";
 export default function verification() {
   return (
     <div>
-      <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden py-6 sm:py-12 bg-white">
+      <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden py-6 sm:py-12">
         <div className="max-w-xl px-5 text-center">
-          <h2 className="mb-2 text-[42px] font-bold text-zinc-800">
+          <h2 className="mb-2 text-[42px] font-bold text-slate-800 dark:text-slate-100">
             Check your inbox
           </h2>
-          <p className="mb-6 text-lg text-zinc-500">
-            We've sent you a verification link to your email address.
-            Please check your inbox and click the link to verify your account.
+          <p className="mb-6 text-lg text-slate-700 dark:text-slate-200">
+            We've sent you a verification link to your email address. Please
+            check your inbox and click the link to verify your account.
           </p>
           <Link
             href="/login"

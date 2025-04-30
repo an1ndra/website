@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { BookOpen, Code, Zap, ArrowRight } from "lucide-react";
-
+import EnrollNowBtn from "./buttons/enroll";
 const CourseList = () => {
   return (
     <div>
@@ -61,10 +61,7 @@ const CourseList = () => {
                 </div>
               </div>
               <div className="p-6 pt-0">
-                <button className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg font-medium flex items-center justify-center">
-                  <span>Enroll Now</span>
-                  <ArrowRight className="h-4 w-4 ml-2" />
-                </button>
+                <EnrollNowBtn name="Enroll Now" />
               </div>
             </div>
 

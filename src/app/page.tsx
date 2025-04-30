@@ -7,6 +7,7 @@ import PriceSection from "@/components/PriceSection";
 import GetEarlyAccess from "@/components/GetEarlyAccess";
 import Footer from "@/components/Footer";
 import { usePathname } from "next/navigation";
+
 export default function Home() {
   // In this specific path Footer wont show-up
   const pathname = usePathname();

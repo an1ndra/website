@@ -1,6 +1,15 @@
+"use client";
+import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import ProfileDropdown from "./profile-dropdown";
 
 export default function NavBar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const handleClose = (data: boolean) => {
+    setIsOpen(data);
+  };
+
   return (
     <div>
       <nav className="bg-gray-800">
@@ -60,13 +69,15 @@ export default function NavBar() {
             </div>
             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
               <Link href="/">
-              <div className="flex shrink-0 items-center">
-                <img
-                  className="h-8 w-auto"
-                  src="./logo-figma.svg"
-                  alt="S1Coder"
-                />
-              </div>
+                <div className="flex shrink-0 items-center">
+                  <Image
+                    className="h-8 w-auto"
+                    src="./logo-figma.svg"
+                    alt="S1Coder"
+                    width={0}
+                    height={0}
+                  />
+                </div>
               </Link>
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex space-x-4 items-center">
@@ -99,37 +110,43 @@ export default function NavBar() {
                     <span className="absolute -top-2.5 -right-2.5 bg-pink-500 text-white px-2 py-0.5 rounded-full text-xs font-bold shadow-md transform rotate-6 flex items-center justify-center">
                       Offer
                     </span>
-                    <span className="text-white bg-gray-900 px-4 py-2 m-0 rounded-md hover:bg-gray-700 hover:text-slate-100 cursor-pointer">
+                    <span className="text-white bg-gray-900 px-4 py-2 m-0 rounded-md hover:bg-gray-700 hover:text-slate-100 text-nowrap">
                       Backend Courses
                     </span>
                   </a>
                 </div>
               </div>
             </div>
-            <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            <div
+              id="profile-dropdown"
+              className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
+            >
               {/* <!-- Profile dropdown --> */}
               <div className="relative ml-3">
                 <div>
-                  <Link href="/login">
-                   <button
+                  {/* <Link href="/login"> */}
+
+                  <button
                     type="button"
                     className="relative flex rounded-full bg-gray-800 text-sm focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden cursor-pointer"
                     id="user-menu-button"
                     aria-expanded="false"
                     aria-haspopup="true"
-
+                    onClick={() => setIsOpen(!isOpen)}
                   >
                     <span className="absolute -inset-1.5"></span>
                     <span className="sr-only">Open user menu</span>
-                    <img
+                    <Image
                       className="size-8 rounded-full"
                       src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
+                      alt="Profile picture"
+                      width={0}
+                      height={0}
                     />
                   </button>
-                  
-                  </Link>
-               </div>
+                  {isOpen && <ProfileDropdown handleClose={handleClose} />}
+                  {/* </Link> */}
+                </div>
               </div>
             </div>
           </div>

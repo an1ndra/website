@@ -1,13 +1,21 @@
+// Add loading animation to the button after clicking
 "use client";
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { authClient } from "../../../../lib/auth-client";
+import { LoaderCircle } from "lucide-react";
+import SigninBtn from "@/components/buttons/signin";
+import GoogleBtn from "@/components/buttons/google";
 
 export default function SignupPage() {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
 
+  const handleLoading = (data) => {
+    setIsLoading(data);
+  };
   const handleSumit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -28,14 +36,16 @@ export default function SignupPage() {
       {
         onRequest: (ctx) => {
           //show loading
+          setIsLoading(true);
           console.log("Loading..." + ctx);
         },
         onSuccess: (ctx) => {
           //redirect to the dashboard or sign in page
           console.log("Signup success " + ctx.response.status);
+          setIsLoading(false);
           const res = ctx.response.status;
           if (res === 200) {
-            router.push("/login");
+            router.push("/"); //Neext to push verify page
           } else if (res === 422) {
             console.log("Email already registered!");
           }
@@ -79,7 +89,7 @@ export default function SignupPage() {
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                Sign up to your account
+                Create new Account
               </h1>
               {/* <script
                 src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback"
@@ -148,34 +158,12 @@ export default function SignupPage() {
                     data-size="flexible"
                   ></div>
                 </div> */}
-                <button
+                <SigninBtn
+                  name="Create new account"
                   type="submit"
-                  className="w-full text-white bg-blue-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center disabled:opacity-50"
-                >
-                  Sign Up
-                </button>
-                <button
-                  type="button"
-                  className="text-white w-full bg-blue-600 hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center justify-between mr-2 mb-2"
-                  onClick={handleGoogleSignup}
-                >
-                  <svg
-                    className="mr-2 -ml-1 w-4 h-4"
-                    aria-hidden="true"
-                    focusable="false"
-                    data-prefix="fab"
-                    data-icon="google"
-                    role="img"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 488 512"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"
-                    ></path>
-                  </svg>
-                  Sign up with Google<div></div>
-                </button>
+                  isLoading={isLoading}
+                />
+                <GoogleBtn onClick={handleGoogleSignup} />
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Already have an account{" "}
                   <Link

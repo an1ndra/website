@@ -1,6 +1,13 @@
 import { Calendar } from "lucide-react";
 import Link from "next/link";
+import HeroDiscountBtn from "./buttons/hero-discount";
+import { useState } from "react";
+import AddressForm from "./AddressForm/addressForm";
 export default function BodyDetails() {
+  const [showModal, setShowModal] = useState(false);
+  const handleClose = (data: boolean) => {
+    setShowModal(data);
+  };
   return (
     <div className="flex flex-col pb-20">
       {/* Hero section */}
@@ -31,18 +38,22 @@ export default function BodyDetails() {
           </div>
         </div>
         <div className="flex justify-center">
-          <div className="flex flex-col">
-            <button
-              type="button"
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4
-          focus:ring-blue-300 font-medium rounded-lg md:text-lg text-base px-5 py-2.5 me-2 mb-2
-          dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-            >
-              Get your course now with 25% discount!
-            </button>
+          <div className="flex flex-col" onClick={() => setShowModal(true)}>
+            <HeroDiscountBtn name="Get your course now with 25% discount!" />
             <span className="flex justify-center text-blue-200">
               Limited time offer for founding members
             </span>
+          </div>
+          {/*For Address*/}
+          <div>
+            {showModal && (
+              <div
+                className="fixed bg-black/80 min-h-screen z-10 w-full flex justify-center items-center top-0 left-0 "
+                onClick={() => setShowModal(false)}
+              >
+                <AddressForm handleClose={handleClose} />
+              </div>
+            )}
           </div>
         </div>
       </section>
