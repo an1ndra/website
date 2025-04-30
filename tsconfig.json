@@ -13,6 +13,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "noUnusedLocals": false,
     "plugins": [
       {
         "name": "next"
@@ -27,10 +28,9 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/app/(auth)/login/page.jsx"
-,
-"src/app/(auth)/signup/page.jsx",
-"tailwind.config.js"
-],
+    "src/app/(auth)/login/page.jsx",
+    "src/app/(auth)/signup/page.jsx",
+    "tailwind.config.js"
+  ],
   "exclude": ["node_modules"]
 }
