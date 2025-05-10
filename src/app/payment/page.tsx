@@ -38,7 +38,7 @@ export default function PaymentPage() {
       } else {
         throw new Error("Payment link not found in response");
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       throw new Error(err);
     }
   };

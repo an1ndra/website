@@ -1,14 +1,20 @@
 // TODO: Instead of using sqlite use Postgres(Neon)
 import { betterAuth } from "better-auth";
-import Database from "better-sqlite3";
+// import Database from "better-sqlite3";
 import { Resend } from "resend";
 import { haveIBeenPwned } from "better-auth/plugins";
+import { Pool } from "pg";
+import { jwt } from "better-auth/plugins";
+// import { drizzleAdapter } from "better-auth/adapters/drizzle";
+// import { db } from "@/db"; // your drizzle instance
 
-export const resend = new Resend(process.env.RESEND_API_KEY);
+export const resend = new Resend("re_FAv8Qpn2_EFBrrHUZ1xnjhh2MTtThKDGL");
+console.log(resend);
 
 console.log("-----------BETTER AUTH SQL Execution Started--------------");
 export const auth = betterAuth({
   plugins: [
+    jwt(),
     haveIBeenPwned({
       customPasswordCompromisedMessage: "Please choose a more secure password.",
     }),
@@ -52,5 +58,10 @@ export const auth = betterAuth({
       });
     },
   },
-  database: new Database("./sqlite.db"),
+  database: new Pool({
+    connectionString: process.env.PG_DATABASE_URL,
+  }),
+  // database: drizzleAdapter(db, {
+  //   provider: "pg", // or "mysql", "sqlite"
+  // }),
 });

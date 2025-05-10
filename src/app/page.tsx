@@ -5,6 +5,7 @@ import CourseList from "@/components/CourseList";
 import BodyDetails from "@/components/BodyDetails";
 import PriceSection from "@/components/PriceSection";
 import GetEarlyAccess from "@/components/GetEarlyAccess";
+import PricingSection from "@/components/PricingSection";
 import Footer from "@/components/Footer";
 import { usePathname } from "next/navigation";
 
@@ -15,14 +16,15 @@ export default function Home() {
   const showFooter = !hideFooterRouters.includes(pathname);
   return (
     <>
-      <div className="bg-slate-900 h-full">
+      <div className="dark:bg-slate-900 h-full">
         <BodyDetails />
         <CourseList />
         <RoadMap />
         <div>
-          <PriceSection />
+          <PricingSection />
+          {/* <PriceSection />*/}
         </div>
-        <GetEarlyAccess />
+        {/* <GetEarlyAccess /> */}
         {showFooter && <Footer />}
       </div>
     </>

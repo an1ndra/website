@@ -106,14 +106,14 @@ export default function NavBar() {
                   >
                     Pricing
                   </a>
-                  <a className="relative inline-block mr-20">
+                  <Link className="relative inline-block mr-20 " href="/video">
                     <span className="absolute -top-2.5 -right-2.5 bg-pink-500 text-white px-2 py-0.5 rounded-full text-xs font-bold shadow-md transform rotate-6 flex items-center justify-center">
                       Offer
                     </span>
                     <span className="text-white bg-gray-900 px-4 py-2 m-0 rounded-md hover:bg-gray-700 hover:text-slate-100 text-nowrap">
                       Backend Courses
                     </span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

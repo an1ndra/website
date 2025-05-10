@@ -4,13 +4,13 @@ import { Badge } from "./ui/badge";
 const RoadMap = () => {
   return (
     <div>
-      <section className="py-16 bg-white" id="roadmap">
+      <section className="py-16" id="roadmap">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 dark:text-gray-700">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-800 dark:text-slate-100">
               Your Learning Roadmap
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className=" max-w-2xl mx-auto dark:text-slate-200 text-slate-700">
               Our structured approach guides you from fundamentals to advanced
               concepts with a clear path to mastery.
             </p>
@@ -55,7 +55,7 @@ const RoadMap = () => {
                   <div
                     className={`w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold ${
                       i === 0
-                        ? "bg-blue-500 text-white"
+                        ? "bg-blue-500 text-slate-700 dark:text-slate-200"
                         : "bg-gray-100 text-gray-500"
                     }`}
                   >
@@ -65,14 +65,20 @@ const RoadMap = () => {
                 </div>
                 <div
                   className={`p-6 rounded-lg dark:text-gray-700 ${
-                    i === 0 ? "bg-blue-50 border border-blue-100" : "bg-gray-50"
+                    i === 0
+                      ? "bg-blue-50 border border-blue-100 dark:bg-gray-800"
+                      : "bg-gray-50 dark:bg-gray-800"
                   }`}
                 >
-                  <h3 className="font-bold text-xl mb-2">{step.title}</h3>
-                  <p className="text-gray-600 mb-3">{step.description}</p>
-                  <Badge className="p-1 pl-2 pr-2 dark:bg-slate-300 bg-slate-700">
+                  <h3 className="font-bold text-xl mb-2 dark:text-slate-200 text-slate-700">
+                    {step.title}
+                  </h3>
+                  <p className=" mb-3 dark:text-slate-200 text-slate-700">
+                    {step.description}
+                  </p>
+                  <div className="badge badge-soft badge-secondary dark:text-slate-200 text-slate-700">
                     {step.status}
-                  </Badge>
+                  </div>
                 </div>
               </div>
             ))}

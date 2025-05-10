@@ -5,7 +5,7 @@ export default function ProceSection() {
   return (
     <div className="bg-slate-50">
       <div className="w-full md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6 mx-auto ">
-        <div className="shadow p-5 rounded-md bg-blue-500 ml-2 mr-2">
+        <div className="card bg-slate-600 p-4 w-96 shadow-sm ">
           {" "}
           <p className="uppercase text-sm font-medium text-slate-100">
             Starter
@@ -66,7 +66,7 @@ export default function ProceSection() {
           </div>
         </div>
 
-        <div className="shadow p-5 rounded-md bg-blue-600 ml-2 mr-2">
+        <div className="card bg-base-100 w-96 shadow-sm p-4">
           <p className="uppercase text-sm font-medium text-slate-100">
             Standard
           </p>

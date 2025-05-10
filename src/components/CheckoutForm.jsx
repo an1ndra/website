@@ -59,7 +59,7 @@ export default function CheckoutForm({ cartItems }) {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <h2>Checkout</h2>
+        <h2 className="text-slate-800 dark:text-slate-100">Checkout</h2>
         <input
           name="firstName"
           value={formData.firstName}

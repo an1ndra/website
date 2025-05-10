@@ -1,11 +1,27 @@
 import Image from "next/image";
 import { Settings, LogOut, LogIn, X } from "lucide-react";
 import { redirect } from "next/navigation";
+import { authClient } from "../../lib/auth-client";
+import { useRouter } from "next/navigation";
+
 export default function ProfileDropdown({
   handleClose,
 }: {
   handleClose: (data: boolean) => void;
 }) {
+  const router = useRouter();
+  const handleSignOut = async () => {
+    handleClose(false);
+    await authClient.signOut({
+      fetchOptions: {
+        onSuccess: () => {
+          setTimeout(() => {
+            router.push("/login");
+          });
+        },
+      },
+    });
+  };
   return (
     <div className="relative">
       {
@@ -44,7 +60,7 @@ export default function ProfileDropdown({
           <button
             className="w-full flex items-center gap-2 py-2.5 px-3 cursor-pointer rounded-md hover:bg-slate-700 focus:bg-slate-700 focus:outline-none text-left"
             onClick={() => {
-              console.log("login button clicked")
+              console.log("login button clicked");
               handleClose(false);
               setTimeout(() => {
                 redirect("/login");
@@ -68,7 +84,7 @@ export default function ProfileDropdown({
 
           <button
             className="w-full flex items-center gap-2 py-2.5 px-3 cursor-pointer rounded-md hover:bg-red-900/30 focus:bg-red-900/30 focus:outline-none text-red-400 text-left"
-            onClick={() => console.log("Sign out clicked")}
+            onClick={handleSignOut}
           >
             <LogOut className="h-4 w-4" />
             <span>Sign out</span>

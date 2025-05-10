@@ -44,7 +44,7 @@ const LoginPage = () => {
                     >
                       Your email
                     </label>
-                    <label className="input validator">
+                    <label className="input validator w-full">
                       <svg
                         className="h-[1em] opacity-50"
                         xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +86,7 @@ const LoginPage = () => {
                     >
                       Your Password
                     </label>
-                    <label className="input validator">
+                    <label className="input validator w-full">
                       <svg
                         className="h-[1em] opacity-50"
                         xmlns="http://www.w3.org/2000/svg"
@@ -115,17 +115,8 @@ const LoginPage = () => {
                         required
                         placeholder="Password"
                         minLength="8"
-                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                        title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
                       />
                     </label>
-                    <p className="validator-hint hidden">
-                      Must be more than 8 characters, including
-                      <br />
-                      At least one number <br />
-                      At least one lowercase letter <br />
-                      At least one uppercase letter
-                    </p>
                   </div>
                   <div className="flex items-center justify-between">
                     <div className="flex items-start">
@@ -158,7 +149,7 @@ const LoginPage = () => {
                     Don’t have an account yet?{" "}
                     <Link
                       href="/signup"
-                      className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                      className="font-medium text-primary-600 hover:underline dark:text-primary-500 link link-primary"
                     >
                       Sign up
                     </Link>

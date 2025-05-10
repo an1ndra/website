@@ -34,7 +34,7 @@ export default function AddressForm({
               <input
                 type="text"
                 id="address1"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="input w-full"
                 placeholder="Enter your street address"
                 required
               />
@@ -49,7 +49,7 @@ export default function AddressForm({
               <input
                 type="text"
                 id="address2"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="input w-full"
                 placeholder="Apartment, suite, unit, etc. (optional)"
               />
             </div>
@@ -64,7 +64,7 @@ export default function AddressForm({
                 <input
                   type="text"
                   id="city"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="input w-full"
                   placeholder="Enter your city"
                   required
                 />
@@ -79,7 +79,7 @@ export default function AddressForm({
                 <input
                   type="state"
                   id="city"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="w-full input"
                   placeholder="Enter your state"
                   required
                 />
@@ -96,7 +96,7 @@ export default function AddressForm({
                 <input
                   type="text"
                   id="pincode"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="input w-full"
                   placeholder="Enter PIN Code"
                   required
                 />
@@ -111,7 +111,7 @@ export default function AddressForm({
                 <input
                   type="text"
                   id="country"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="input w-full"
                   placeholder="Enter your country"
                   required
                 />

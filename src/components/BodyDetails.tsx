@@ -9,7 +9,7 @@ export default function BodyDetails() {
     setShowModal(data);
   };
   return (
-    <div className="flex flex-col pb-20">
+    <div className="flex flex-col pb-20 bg-slate-900 shadow-lg shadow-slate-900/20">
       {/* Hero section */}
       <section>
         <Link
