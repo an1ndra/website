@@ -3,8 +3,8 @@
 import RoadMap from "@/components/RoadMap";
 import CourseList from "@/components/CourseList";
 import BodyDetails from "@/components/BodyDetails";
-import PriceSection from "@/components/PriceSection";
-import GetEarlyAccess from "@/components/GetEarlyAccess";
+// import PriceSection from "@/components/PriceSection";
+// import GetEarlyAccess from "@/components/GetEarlyAccess";
 import PricingSection from "@/components/PricingSection";
 import Footer from "@/components/Footer";
 import { usePathname } from "next/navigation";
