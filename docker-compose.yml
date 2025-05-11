@@ -4,7 +4,7 @@ services:
   web:
     build:
       context: .
-      dockerfile: Dockerfile asd
+      dockerfile: Dockerfile
     container_name: s1coder_website
     ports:
       - "3000:3000"
@@ -17,3 +17,34 @@ services:
       - NODE_ENV=development
       - NEXT_TELEMETRY_DISABLED=1
     command: npm run dev
+    depends_on:
+      - db
+    # This for sync developement in local
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /app
+          ignore:
+            - node_modules/
+            - .git/
+            - .dockerignore
+            - Dockerfile
+            - docker-compose.yml
+
+  db:
+    image: postgres:17-alpine #Postgres 17
+    container_name: s1coder_postgres #Container name
+    environment:
+      - POSTGRES_USER=${DB_USER:-postgres} #User
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-postgres} #Password
+      - POSTGRES_DB=${DB_NAME:-app_db} #Database
+    volumes:
+      - postgres_data:/var/lib/postgresql/data #Volumes to save database
+    ports:
+      - "5432:5432" #Port
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    name: s1coder_postgres_data
