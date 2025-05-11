@@ -16,7 +16,7 @@ EXPOSE 3000
 
 # Use .env files (they are passed at runtime, not baked into image
 ENV NODE_ENV=development
-ENV NEXT_TELEMETRY_DISABLED 1
+ENV NEXT_TELEMETRY_DISABLED=1
 
 # Start the app (you can override this in docker-compose or CLI)
 CMD ["npm", "run", "dev"]

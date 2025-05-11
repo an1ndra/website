@@ -19,30 +19,18 @@ services:
     command: npm run dev
     depends_on:
       - db
-    # This for sync developement in local
-    develop:
-      watch:
-        - action: sync
-          path: .
-          target: /app
-          ignore:
-            - node_modules/
-            - .git/
-            - .dockerignore
-            - Dockerfile
-            - docker-compose.yml
 
   db:
-    image: postgres:17-alpine #Postgres 17
-    container_name: s1coder_postgres #Container name
+    image: postgres:17-alpine
+    container_name: s1coder_postgres
     environment:
-      - POSTGRES_USER=${DB_USER:-postgres} #User
-      - POSTGRES_PASSWORD=${DB_PASSWORD:-postgres} #Password
-      - POSTGRES_DB=${DB_NAME:-app_db} #Database
+      - POSTGRES_USER=${DB_USER:-postgres}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-postgres}
+      - POSTGRES_DB=${DB_NAME:-app_db}
     volumes:
-      - postgres_data:/var/lib/postgresql/data #Volumes to save database
+      - postgres_data:/var/lib/postgresql/data
     ports:
-      - "5432:5432" #Port
+      - "5432:5432"
     restart: unless-stopped
 
 volumes:
