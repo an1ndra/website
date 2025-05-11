@@ -1,18 +1,22 @@
-# Use the official Node.js image
-FROM node:20-alpine
+# Use official Node.js image
+FROM node:20-alpine AS base
 
 # Set working directory
 WORKDIR /app
 
-# Install dependencies first (uses cache)
-COPY package*.json ./
+# Install dependencies separately to cache them
+COPY package.json package-lock.json* ./
 RUN npm install
 
-# Copy the rest of the application
+# Copy only the necessary source files (excluding via .dockerignore)
 COPY . .
 
-# Expose the Next.js dev server port
+# Expose port
 EXPOSE 3000
 
-# Default command (can be overridden in docker-compose)
+# Use .env files (they are passed at runtime, not baked into image
+ENV NEXT_TELEMETRY_DISABLED 1
+ENV NODE_ENV=local
+
+# Start the app (you can override this in docker-compose or CLI)
 CMD ["npm", "run", "dev"]

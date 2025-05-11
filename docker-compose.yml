@@ -1,12 +1,19 @@
-version: '3.8'
+version: "3.8"
+
 services:
-  nextjs:
-    build: .
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile asd
+    container_name: s1coder_website
     ports:
       - "3000:3000"
     volumes:
       - .:/app
       - /app/node_modules
+    env_file:
+      - .env.local
     environment:
       - NODE_ENV=development
-      - NEXT_PUBLIC_API_URL=http://localhost:3000
+      - NEXT_TELEMETRY_DISABLED=1
+    command: npm run dev
