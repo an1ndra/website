@@ -1,6 +1,5 @@
 // TODO: Instead of using sqlite use Postgres(Neon)
 import { betterAuth } from "better-auth";
-// import Database from "better-sqlite3";
 import { Resend } from "resend";
 import { haveIBeenPwned } from "better-auth/plugins";
 import { Pool } from "pg";
