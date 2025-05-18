@@ -45,5 +45,5 @@
 1. Run application in docker: This will use `Dockerfile` and build it.
 
 ```bash
-sudo docker-compose up --build
+docker compose up --build
 ```
