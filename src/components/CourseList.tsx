@@ -3,7 +3,13 @@ import Image from "next/image";
 import { BookOpen, Code, Zap, ArrowRight } from "lucide-react";
 import EnrollNowBtn from "./buttons/enroll";
 import AvaterGroups from "./avater/avater-groups";
+import AddressForm from "./AddressForm/addressForm";
+import { useState } from "react";
 const CourseList = () => {
+  const [showModal, setShowModal] = useState(false);
+  const handleClose = (data: boolean) => {
+    setShowModal(data);
+  };
   return (
     <div>
       <section className="py-16" id="courses">
@@ -20,7 +26,7 @@ const CourseList = () => {
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Current Course */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden border card-border flex flex-col">
+            <div className="bg-white dark:border-blue-500 dark:bg-gray-800 rounded-xl hover:shadow-xl/30 shadow-blue-500/60 overflow-hidden border card-border flex flex-col">
               <div className="relative">
                 <Image
                   src="/placeholder.svg?height=200&width=400"
@@ -57,7 +63,20 @@ const CourseList = () => {
                 </div>
               </div>
               <div className="p-6 pt-0">
-                <EnrollNowBtn name="Enroll Now" />
+                <div onClick={() => setShowModal(true)}>
+                  <EnrollNowBtn name="Enroll Now" />
+                </div>
+                {/*For Address Form*/}
+                <div>
+                  {showModal && (
+                    <div
+                      className="fixed bg-black/80 min-h-screen z-10 w-full flex justify-center items-center top-0 left-0 "
+                      onClick={() => setShowModal(false)}
+                    >
+                      <AddressForm handleClose={handleClose} />
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
 
