@@ -4,9 +4,16 @@ FROM node:20-alpine AS base
 # Set working directory
 WORKDIR /app
 
+RUN apk add --no-cache curl bash
+
+RUN curl -fsSL https://bun.sh/install | bash
+
+# Add Bun to PATH
+ENV PATH="/root/.bun/bin:$PATH"
+
 # Install dependencies separately to cache them
-COPY package.json package-lock.json* ./
-RUN npm install
+COPY bun.lockb package.json package-lock.json* ./
+RUN bun install
 
 # Copy only the necessary source files (excluding via .dockerignore)
 COPY . .
@@ -19,4 +26,4 @@ ENV NODE_ENV=development
 ENV NEXT_TELEMETRY_DISABLED=1
 
 # Start the app (you can override this in docker-compose or CLI)
-CMD ["npm", "run", "dev"]
+CMD ["bun", "run", "dev"]
