@@ -61,10 +61,12 @@ const RoadMap = () => {
                   >
                     {step.step}
                   </div>
-                  {i < 3 && <div className="w-0.5 h-16 bg-gray-200 mt-2"></div>}
+                  {i < 4 && (
+                    <div className="w-0.5 h-20  mt-2 bg-gradient-to-b dark:from-blue-500 dark:to-slate-700"></div>
+                  )}
                 </div>
                 <div
-                  className={`p-6 rounded-lg dark:text-gray-700 ${
+                  className={`p-6 rounded-lg w-5/6 dark:text-gray-700 ${
                     i === 0
                       ? "bg-blue-50 border border-blue-100 dark:bg-gray-800"
                       : "bg-gray-50 dark:bg-gray-800"
