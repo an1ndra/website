@@ -1,0 +1,121 @@
+[
+  {
+    "id": 1,
+    "complete": "true",
+    "title": "Introduction to the Course",
+    "description": "An overview of what the course will cover and how to navigate the materials.",
+    "time": "10:00"
+  },
+  {
+    "id": 2,
+    "complete": "true",
+    "title": "Setting Up Your Environment",
+    "description": "Learn how to install the necessary tools and configure your development environment.",
+    "time": "15:30"
+  },
+  {
+    "id": 3,
+    "complete": "false",
+    "title": "Understanding the Basics",
+    "description": "Cover fundamental concepts like syntax, variables, and basic operations.",
+    "time": "20:00"
+  },
+  {
+    "id": 4,
+    "complete": "false",
+    "title": "Working with Variables and Data Types",
+    "description": "Dive deeper into variable types, type casting, and data storage in memory.",
+    "time": "25:45"
+  },
+  {
+    "id": 5,
+    "complete": "false",
+    "title": "Control Flow and Functions",
+    "description": "Learn how to use if statements, loops, and define reusable functions.",
+    "time": "30:10"
+  },
+  {
+    "id": 6,
+    "complete": "false",
+    "title": "Object-Oriented Programming",
+    "description": "Understand classes, objects, inheritance, and encapsulation.",
+    "time": "35:20"
+  },
+  {
+    "id": 7,
+    "complete": "false",
+    "title": "Working with APIs",
+    "description": "Introduction to APIs and how to fetch and process data from external services.",
+    "time": "18:40"
+  },
+  {
+    "id": 8,
+    "complete": "false",
+    "title": "Building a Mini Project",
+    "description": "Put your skills together to build a small, functional application.",
+    "time": "45:00"
+  },
+  {
+    "id": 9,
+    "complete": "false",
+    "title": "Final Assessment and Review",
+    "description": "Test your knowledge with a final assessment and go over key concepts.",
+    "time": "20:00"
+  },
+  {
+    "id": 10,
+    "complete": "false",
+    "title": "Building a Mini Project",
+    "description": "Put your skills together to build a small, functional application.",
+    "time": "45:00"
+  },
+  {
+    "id": 11,
+    "complete": "false",
+    "title": "Building a Mini Project",
+    "description": "Put your skills together to build a small, functional application.",
+    "time": "45:00"
+  },
+  {
+    "id": 12,
+    "complete": "false",
+    "title": "Building a Mini Project",
+    "description": "Put your skills together to build a small, functional application.",
+    "time": "45:00"
+  },
+  {
+    "id": 13,
+    "complete": "false",
+    "title": "Building a Mini Project",
+    "description": "Put your skills together to build a small, functional application.",
+    "time": "45:00"
+  },
+  {
+    "id": 14,
+    "complete": "false",
+    "title": "Building a Mini Project",
+    "description": "Put your skills together to build a small, functional application.",
+    "time": "45:00"
+  },
+  {
+    "id": 15,
+    "complete": "false",
+    "title": "Building a Mini Project",
+    "description": "Put your skills together to build a small, functional application.",
+    "time": "45:00"
+  },
+  {
+    "id": 16,
+    "complete": "false",
+    "title": "Building a Mini Project",
+    "description": "Put your skills together to build a small, functional application.",
+    "time": "45:00"
+  },
+  {
+    "id": 17,
+    "complete": "false",
+    "title": "Building a Mini Project",
+    "description": "Put your skills together to build a small, functional application.",
+    "time": "45:00"
+  }
+]
