@@ -16,7 +16,7 @@ export default function Home() {
   const showFooter = !hideFooterRouters.includes(pathname);
   return (
     <>
-      <div className="dark:bg-slate-900 h-full">
+      <div className="bg-gradient-to-b dark:from-slate-950 dark:to-slate-900">
         <BodyDetails />
         <CourseList />
         <RoadMap />
