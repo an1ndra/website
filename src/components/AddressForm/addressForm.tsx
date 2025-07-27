@@ -6,8 +6,7 @@ export default function AddressForm({
   handleClose: (data: boolean) => void;
 }) {
   return (
-    <>
-      <div
+    <div
         className="card bg-base-100 w-2xl shadow-sm p-6 relative"
         id="addressForm"
         //To fix conflict beheviour use stop propagation() https://www.youtube.com/watch?v=CBuxqDqBnb4
@@ -120,7 +119,6 @@ export default function AddressForm({
           </div>
           <PaymentBtn name="Continue" />
         </form>
-      </div>
-    </>
+    </div>
   );
 }

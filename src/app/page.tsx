@@ -1,5 +1,4 @@
 "use client";
-
 import RoadMap from "@/components/RoadMap";
 import CourseList from "@/components/CourseList";
 import BodyDetails from "@/components/BodyDetails";

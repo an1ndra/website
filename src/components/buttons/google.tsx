@@ -4,8 +4,9 @@ export default function GoogleBtn({ onClick }: { onClick: MouseEventHandler }) {
   return (
     <>
       <button
-        className="btn bg-white text-black border-[#e5e5e5] w-full"
+        className="btn bg-white text-black border-[#e5e5e5] w-full "
         onClick={onClick}
+        type="button"
       >
         <svg
           aria-label="Google logo"
@@ -36,7 +37,6 @@ export default function GoogleBtn({ onClick }: { onClick: MouseEventHandler }) {
         </svg>
         Login with Google
       </button>
-      
     </>
   );
 }

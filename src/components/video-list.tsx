@@ -1,5 +1,5 @@
-import type { VideoType } from "../../lib/types";
 import Image from "next/image";
+import type { VideoType } from "../../lib/types";
 
 interface VideoListProps {
   videos: VideoType[];

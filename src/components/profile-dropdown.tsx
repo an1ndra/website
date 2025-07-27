@@ -1,8 +1,7 @@
+import { LogIn, LogOut, Settings, X } from "lucide-react";
 import Image from "next/image";
-import { Settings, LogOut, LogIn, X } from "lucide-react";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { authClient } from "../../lib/auth-client";
-import { useRouter } from "next/navigation";
 
 export default function ProfileDropdown({
   handleClose,
@@ -45,6 +44,7 @@ export default function ProfileDropdown({
             </div>
             <button
               className="h-7 w-7 rounded-full hover:bg-slate-700 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-slate-600"
+              type="button"
               onClick={() => handleClose(false)}
             >
               <X className="h-4 w-4" />
@@ -59,6 +59,7 @@ export default function ProfileDropdown({
 
           <button
             className="w-full flex items-center gap-2 py-2.5 px-3 cursor-pointer rounded-md hover:bg-slate-700 focus:bg-slate-700 focus:outline-none text-left"
+            type="button"
             onClick={() => {
               console.log("login button clicked");
               handleClose(false);
@@ -73,6 +74,7 @@ export default function ProfileDropdown({
 
           <button
             className="w-full flex items-center gap-2 py-2.5 px-3 cursor-pointer rounded-md hover:bg-slate-700 focus:bg-slate-700 focus:outline-none text-left"
+            type="button"
             onClick={() => console.log("Settings clicked")}
           >
             <Settings className="h-4 w-4 text-slate-400" />
@@ -84,6 +86,7 @@ export default function ProfileDropdown({
 
           <button
             className="w-full flex items-center gap-2 py-2.5 px-3 cursor-pointer rounded-md hover:bg-red-900/30 focus:bg-red-900/30 focus:outline-none text-red-400 text-left"
+            type="button"
             onClick={handleSignOut}
           >
             <LogOut className="h-4 w-4" />

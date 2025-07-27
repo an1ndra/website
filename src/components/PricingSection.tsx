@@ -1,13 +1,23 @@
-import { Zap, Users, BarChart3, Check } from "lucide-react";
-import BuyBtn from "./buttons/buy";
+import { BarChart3, Check, Users, Zap } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useSession } from "../../lib/auth-client";
 import AddressForm from "./AddressForm/addressForm";
+import BuyBtn from "./buttons/buy";
 
 export default function PricingSection() {
+  const { data } = useSession(); // Get session from Better Auth
+  const router = useRouter();
   const [showModal, setShowModal] = useState(false);
-  const handleClose = (data: boolean) => {
-    setShowModal(data);
+  // const handleClose = (data: boolean) => {};
+  const handleBuyClick = (value: boolean) => {
+    if (data) {
+      setShowModal(value);
+    } else {
+      router.push("/login");
+    }
   };
+
   return (
     <div className="dark:bg-slate-950">
       <div className="container mx-auto px-4 py-16 max-w-7xl">
@@ -143,9 +153,9 @@ export default function PricingSection() {
 
                 <div
                   className="card-actions mt-8"
-                  onClick={() => setShowModal(true)}
+                  onClick={() => handleBuyClick(true)}
                 >
-                  <BuyBtn name="Create account now" />
+                  <BuyBtn name={data ? "Buy now" : "Create account now"} />
                   <div>
                     {/*For Address Form*/}
                     <div>
@@ -154,7 +164,7 @@ export default function PricingSection() {
                           className="fixed bg-black/80 min-h-screen z-10 w-full flex justify-center items-center top-0 left-0 "
                           onClick={() => setShowModal(false)}
                         >
-                          <AddressForm handleClose={handleClose} />
+                          <AddressForm handleClose={handleBuyClick} />
                         </div>
                       )}
                     </div>

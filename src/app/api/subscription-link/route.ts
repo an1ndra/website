@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from "next/server";
 import { DodoPayments } from "dodopayments";
+import { type NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
   try {

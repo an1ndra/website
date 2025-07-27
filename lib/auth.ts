@@ -7,7 +7,7 @@ import { jwt } from "better-auth/plugins";
 // import { drizzleAdapter } from "better-auth/adapters/drizzle";
 // import { db } from "@/db"; // your drizzle instance
 
-export const resend = new Resend("re_FAv8Qpn2_EFBrrHUZ1xnjhh2MTtThKDGL");
+export const resend = new Resend(process.env.RESEND_API_KEY as string);
 console.log(resend);
 
 console.log("-----------BETTER AUTH SQL Execution Started--------------");
@@ -50,7 +50,7 @@ export const auth = betterAuth({
       url: string;
     }) => {
       await resend.emails.send({
-        from: "S1Coder Verification <no-reply@mail.s1coder.dev>", // You could add your custom domain
+        from: "S1Coder Verification <no-reply@verify.s1coder.dev>", // You could add your custom domain
         to: [user.email], // email of the user to want to end
         subject: "Confirm your email address", // Main subject of the email
         html: `<b>Activation Link:</b> <a href="${url}">${url}</a>`, // Content of the email

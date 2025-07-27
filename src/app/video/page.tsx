@@ -1,35 +1,64 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import "@vidstack/react/player/styles/default/theme.css";
-import "@vidstack/react/player/styles/default/layouts/video.css";
+import { useEffect, useState, useRef } from "react";
 import video from "./video.json";
+import VideoJS from "@/components/videoJS/VideoPlayer";
 
-import { MediaPlayer, MediaProvider, Poster } from "@vidstack/react";
-import {
-  defaultLayoutIcons,
-  DefaultVideoLayout,
-} from "@vidstack/react/player/layouts/default";
-
-import { Check } from "lucide-react";
+import { Check, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function Video() {
-  const [videoUrl, setVideoUrl] = useState<string | null>(null);
+  const [videoUrl, setVideoUrl] = useState<string>();
 
   useEffect(() => {
-    const fetchVideoUrl = async () => {
-      try {
-        const res = await fetch("/api/hls");
-        const data = await res.json();
-        setVideoUrl(data.url);
-        console.log("Fetched HLS URL:", data.url);
-      } catch (error) {
-        console.error("Failed to fetch video URL:", error);
-      }
-    };
-
-    fetchVideoUrl();
+    setVideoUrl("/api/get-presigned-m3u8");
   }, []);
+
+  const playerRef = useRef<any>(null);
+
+  console.log("Video URL ", videoUrl);
+
+
+  const videoJsOptions = {
+    autoplay: false,
+    controls: true,
+    responsive: true,
+    fluid: true,
+    poster: "https://files.vidstack.io/sprite-fight/poster.webp",
+    tracks: [
+      {
+        src: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+        label: 'English',
+        kind: 'subtitles',
+        default: true,
+      },
+      {
+        kind: "chapters",
+        src: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        srclang: "en",
+        label: 'Chapters',
+        default: true
+      }
+    ],
+    sources: [
+      {
+        src: 'https://files.vidstack.io/sprite-fight/hls/stream.m3u8',
+        type: 'application/x-mpegURL',
+      },
+    ],
+
+  };
+
+  const handlePlayerReady = (player) => {
+    playerRef.current = player;
+
+    player.on('waiting', () => {
+      console.log('Player is waiting');
+    });
+
+    player.on('dispose', () => {
+      console.log('Player will dispose');
+    });
+  };
 
   return (
     <>
@@ -39,9 +68,9 @@ export default function Video() {
             <div
               id="title"
               key={item.id}
-              className="flex flex-col w-full h-fit p-4 ml-2 mr-2 bg-white border
-               border-black dark:border-gray-300 rounded-lg shadow-sm hover:bg-gray-100
-                dark:bg-gray-800  dark:hover:bg-gray-700 cursor-pointer"
+              className="flex flex-col w-full h-fit p-4 mb-4 bg-white border
+               border-black dark:border-gray-600 rounded-lg shadow-sm hover:bg-gray-100
+                dark:bg-gray-800  dark:hover:bg-gray-800/75 cursor-pointer"
             >
               <div className="flex justify-between">
                 <div>
@@ -64,26 +93,10 @@ export default function Video() {
             </div>
           ))}
         </div>
+
         <div className="sm:w-4/6 w-full">
           <div>
-            <MediaPlayer
-              title="Sprite Fight"
-              src="https://live-hls-abr-cdn.livepush.io/live/bigbuckbunnyclip/index.m3u8"
-              style={{ borderRadius: "0" }}
-              playsInline
-            >
-              <MediaProvider>
-                <Poster
-                  className="vds-poster"
-                  src="https://files.vidstack.io/sprite-fight/poster.webp"
-                  alt="Poster image"
-                />
-              </MediaProvider>
-              <DefaultVideoLayout
-                thumbnails="https://files.vidstack.io/sprite-fight/thumbnails.vtt"
-                icons={defaultLayoutIcons}
-              />
-            </MediaPlayer>
+            <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
           </div>
           <div>
             <h2
@@ -97,7 +110,25 @@ export default function Video() {
               environment.
             </p>
           </div>
-          <div className=" flex-col hidden sm:flex gap-2 mb-4 w-full h-fit p-4 bg-white border border-black dark:border-gray-300 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800  dark:hover:bg-gray-700 cursor-pointer">
+          <div
+            id="tab"
+            className="flex justify-between content-center pb-4 items-end"
+          >
+            <ChevronLeft className="ml-3 block sm:hidden hover:text-gray-300" />
+            <div role="tablist" className="tabs tabs-border">
+              <a role="tab" className="tab tab-active">
+                Description
+              </a>
+              <a role="tab" className="tab ">
+                Notes
+              </a>
+              <a role="tab" className="tab">
+                Links
+              </a>
+            </div>
+            <ChevronRight className="mr-3 block sm:hidden hover:text-gray-300" />
+          </div>
+          <div className=" flex-col hidden sm:flex gap-2 mb-4 w-full h-fit p-4 bg-white border border-black dark:border-gray-600 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800  dark:hover:bg-gray-800/80 cursor-pointer">
             <div className="font-bold">Hello World</div>
             <div className="font-normal text-gray-400">
               Remember to install Node.js first before trying to use npm.
@@ -106,63 +137,5 @@ export default function Video() {
         </div>
       </div>
     </>
-    // <div className="flex sm:flex-row flex-col-reverse sm:2/6">
-    //   {video.map((item) => (
-    //     <div
-    //       key={item.id}
-    //       className="block w-full h-fit m-4 sm:w-2/6 p-4 bg-white border border-black dark:border-gray-300 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800  dark:hover:bg-gray-700 cursor-pointer"
-    //     >
-    //       <div className="flex justify-between">
-    //         <div>
-    //           <p className="font-bold">{item.title}</p>
-    //         </div>
-    //         <div className="flex items-center">
-    //           <div>
-    //             <Check
-    //               size={20}
-    //               className={`mr-2 ${
-    //                 item.complete === "true"
-    //                   ? "text-green-500"
-    //                   : "text-gray-400"
-    //               }`}
-    //             />
-    //           </div>
-    //           <div className="text-gray-500">{item.time}</div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   ))}
-    //   <div className="sm:w-4/6 w-full">
-    //     <div>
-    //       <MediaPlayer
-    //         title="Sprite Fight"
-    //         src={
-    //           // videoUrl ||
-    //           "https://live-hls-abr-cdn.livepush.io/live/bigbuckbunnyclip/index.m3u8"
-    //         }
-    //         style={{ borderRadius: "0" }}
-    //         playsInline
-    //       >
-    //         <MediaProvider>
-    //           <Poster
-    //             className="vds-poster"
-    //             src="https://files.vidstack.io/sprite-fight/poster.webp"
-    //             alt="Poster image"
-    //           />
-    //         </MediaProvider>
-    //         <DefaultVideoLayout
-    //           thumbnails="https://files.vidstack.io/sprite-fight/thumbnails.vtt"
-    //           icons={defaultLayoutIcons}
-    //         />
-    //       </MediaPlayer>
-    //     </div>
-    //     <div className="flex flex-col gap-2 w-full h-fit p-4 bg-white border border-black dark:border-gray-300 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800  dark:hover:bg-gray-700 cursor-pointer">
-    //       <div className="font-bold">Hello World</div>
-    //       <div className="font-normal text-gray-400">
-    //         Remember to install Node.js first before trying to use npm.
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
   );
 }

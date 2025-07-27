@@ -17,6 +17,7 @@ services:
     command: bun run dev
     depends_on:
       - db
+      - redis
 
   db:
     image: postgres:17-alpine
@@ -29,8 +30,31 @@ services:
       - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-    restart: unless-stopped
+    restart: on-failure
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost"]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+
+  redis:
+    image: redis:7-alpine
+    container_name: s1coder_redis
+    ports:
+      - "6779:6379"
+    volumes:
+      - redis_data:/data
+    restart: on-failure
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
 
 volumes:
   postgres_data:
     name: s1coder_postgres_data
+  redis_data:
+    name: s1coder_redis_data
